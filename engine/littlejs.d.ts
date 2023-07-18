@@ -649,7 +649,7 @@ declare module "littlejs.esm" {
         /** Returns this vector expressed as a string
          * @param {float} digits - precision to display
          * @return {String} */
-        toString(digits?: float): string;
+        toString(digits?: number): string;
     }
     /**
      * Color object (red, green, blue, alpha) with some helpful functions
@@ -1456,7 +1456,7 @@ declare module "littlejs.esm" {
          *  @param {Number}   [angle=0]
          *  @param {Boolean}  [mirror=0]
          *  @param {Function} drawFunction */
-        drawCanvas2D(pos: Vector2, size: Vector2, angle?: number, mirror?: boolean, drawFunction: Function): void;
+        drawCanvas2D(pos: Vector2, size: Vector2, angle?: number, mirror?: boolean, drawFunction?: Function): void;
         /** Draw a tile directly onto the layer canvas
          *  @param {Vector2} pos
          *  @param {Vector2} [size=Vector2(1,1)]
@@ -1557,7 +1557,7 @@ declare module "littlejs.esm" {
         /** @property {Number} - Apply extra randomness percent */
         randomness: number;
         /** @property {Number} - Do particles collide against tiles */
-        collideTiles: boolean;
+        collideTiles: number;
         /** @property {Number} - Should particles use addtive blend */
         additive: boolean;
         /** @property {Boolean} - Should it be in local space of emitter */

@@ -9,6 +9,5 @@
   },
   "include": [
     "index.ts",
-    "engine/littlejs.esm.min.js"
   ]
 }
