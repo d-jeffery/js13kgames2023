@@ -1,5 +1,36 @@
 {
+  "name": "littlejsengine",
+  "version": "1.6.0",
+  "description": "LittleJS - Tiny and Fast HTML5 Game Engine",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KilledByAPixel/LittleJS.git"
+  },
+  "keywords": [
+    "HTML5",
+    "JavaScript",
+    "game",
+    "engine",
+    "library",
+    "JS13K",
+    "webgl"
+  ],
+  "author": "Frank Force",
+  "license": "MIT",
+  "scripts": {
+    "build": "cd src && build.bat"
+  },
+  "devDependencies": {
+    "ect-bin": "~1.4.1",
+    "google-closure-compiler": "~20230502.0.0",
+    "roadroller": "~2.1.0",
+    "typescript": "~5.1.6",
+    "uglify-js": "~3.17.4",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  },
   "dependencies": {
-    "typescript": "^5.1.6"
+    "tslib": "^2.6.0"
   }
 }
