@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "module": "CommonJS",
+    "module": "es2020",
     //"moduleResolution": "Node",
     "target": "es2020",
     "outDir": "build",
     //"importHelpers": true
   },
-  "include": ["index.ts", "engine/littlejs.esm.min.js"]
+  "include": [
+    "index.ts",
+    "engine/littlejs.esm.min.js"
+  ]
 }
