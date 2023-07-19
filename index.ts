@@ -40,6 +40,7 @@ function gameInit()
                 const direction = LittleJS.randInt(4)
                 const mirror = LittleJS.randInt(2) ? true : false;
                 const color = LittleJS.randColor();
+                // @ts-ignore
                 const data = new LittleJS.TileLayerData(tileIndex, direction, mirror, color);
                 tileLayer.setData(pos, data);
                 LittleJS.setTileCollisionData(pos, 1);

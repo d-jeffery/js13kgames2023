@@ -3,7 +3,8 @@ rem TypeScript build script for LittleJS by Frank Force
 set NAME=game
 set BUILD_FOLDER=build
 set BUILD_FILENAME=index.js
-set BUILD_ENGINE=./engine/littlejs.esm.js
+set BUILD_ENGINE=littlejs.esm.js
+set BUILD_ENGINE_MIN=littlejs.esm.min.js
 
 rem remove old files
 del %NAME%.zip
@@ -19,13 +20,15 @@ rem copy images to build folder
 copy index.html %BUILD_FOLDER%\index.html
 copy tiles.png %BUILD_FOLDER%\tiles.png
 
+mkdir .\%BUILD_FOLDER%\engine
+copy .\engine\%BUILD_ENGINE_MIN% .\%BUILD_FOLDER%\engine\%BUILD_ENGINE%
+
 rem copy engine release build
 pushd %BUILD_FOLDER%
 
-
 rem minify code with closure
 move %BUILD_FILENAME% temp_%BUILD_FILENAME%
-call npx google-closure-compiler --js=temp_%BUILD_FILENAME% --js=%BUILD_ENGINE% --js_output_file=%BUILD_FILENAME% --compilation_level=ADVANCED --language_out=ECMASCRIPT_2021 --warning_level=VERBOSE --jscomp_off=* --assume_function_wrapper
+call npx google-closure-compiler --js=temp_%BUILD_FILENAME% --js=.\engine\%BUILD_ENGINE% --js_output_file=%BUILD_FILENAME% --compilation_level=ADVANCED --language_out=ECMASCRIPT_2021 --warning_level=VERBOSE --jscomp_off=* --assume_function_wrapper
 if %ERRORLEVEL% NEQ 0 (
     pause
     exit /b %ERRORLEVEL%
@@ -58,6 +61,7 @@ rem type ..\footer.html >> index.html
 
 rem delete intermediate files
 del %BUILD_FILENAME%
+rmdir engine
 
 rem zip the result, ect is recommended
 call ..\node_modules\ect-bin\vendor\win32\ect.exe -9 -strip -zip ..\%NAME%.zip index.html tiles.png
